@@ -8,30 +8,30 @@ import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-@Table(name = "CALL")
+@Table(name = "GAME")
 @Getter @Setter
-public class Call implements Serializable {
+public class Game implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "ANSWERED")
-    private boolean answered;
+    @Column(name = "TITLE")
+    private String title;
 
     @ManyToOne
-    @JoinColumn(name="EMPLOYEE_ID")
-    private Employee employee;
+    @JoinColumn(name="STUDIO")
+    private Studio studio;
 
-    public Call() {
+    public Game() {
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Call call = (Call) o;
-        return Objects.equals(id, call.id);
+        Game game = (Game) o;
+        return Objects.equals(id, game.id);
     }
 
     @Override

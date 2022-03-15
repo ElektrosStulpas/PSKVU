@@ -11,9 +11,9 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table(name = "EMPLOYEE")
+@Table(name = "STUDIO")
 @Getter @Setter
-public class Employee implements Serializable{
+public class Studio implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,19 +26,19 @@ public class Employee implements Serializable{
     @Column(name = "CITY")
     private String city;
 
-    @OneToMany(mappedBy = "employee")
-    private List<Call> calls = new ArrayList<>();
+    @OneToMany(mappedBy = "studio")
+    private List<Game> games = new ArrayList<>();
 
-    public Employee() {
+    public Studio() {
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Employee employee = (Employee) o;
-        return Objects.equals(id, employee.id) &&
-                Objects.equals(name, employee.name);
+        Studio studio = (Studio) o;
+        return Objects.equals(id, studio.id) &&
+                Objects.equals(name, studio.name);
     }
 
     @Override

@@ -6,7 +6,16 @@
 >
 <h:head/>
 <h:body>
-    <h2>Teams:</h2>
-
+    <h2>Current Employees:</h2>
+    <ol>
+        <ui:repeat value="#{employees.allEmployees}" var="employee">
+            <li><h:link value="#{employee.name}"/></li>
+        </ui:repeat>
+    </ol>
+    <h:form>
+        <h:inputText value="#{employees.employeeToRegister.name}" required="true"/>
+        <h:inputText value="#{employees.employeeToRegister.city}" required="true"/>
+        <h:commandButton value="Register an employee" actionListener="#{employees.registerEmployee}" action="index?faces-redirect=true"/>
+    </h:form>
 </h:body>
 </html>

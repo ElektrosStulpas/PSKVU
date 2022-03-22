@@ -5,6 +5,9 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -18,6 +21,9 @@ public class Player implements Serializable {
 
     @Column(name = "HANDLE")
     private String handle;
+
+    @ManyToMany(mappedBy = "players")
+    private List<Game> games = new ArrayList<>();
 
     public Player()
     {

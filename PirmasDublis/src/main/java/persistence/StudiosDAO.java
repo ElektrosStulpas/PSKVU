@@ -20,4 +20,11 @@ public class StudiosDAO {
         return em.createQuery("SELECT e FROM Studio as e", Studio.class)
                 .getResultList();
     }
+
+    public Studio findOneByName(String studioName)
+    {
+        return em.createQuery("SELECT e FROM Studio as e WHERE e.name = :studioName", Studio.class)
+                .setParameter("studioName", studioName)
+                .getSingleResult();
+    }
 }

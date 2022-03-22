@@ -20,7 +20,7 @@ public class Studio implements Serializable{
     private int id;
 
     @Size(max = 50)
-    @Column(name = "NAME")
+    @Column(name = "NAME", unique = true)
     private String name;
 
     @Column(name = "CITY")

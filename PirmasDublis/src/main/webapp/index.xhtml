@@ -3,6 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
 >
 <h:head/>
 <h:body>
@@ -12,7 +13,7 @@
             <li>#{studio.name} :
                 <ul>
                     <ui:repeat value="#{studio.games}" var="game">
-                        <li><h:link value="#{game.title}"/></li>
+                        <li><h:link value="#{game.title}" outcome="players?gameId=#{game.id}"/></li>
                     </ui:repeat>
                 </ul>
             </li>
@@ -20,14 +21,14 @@
     </ol>
     <h3>Add a Studio:</h3>
     <h:form>
-        <h:inputText value="#{studiosController.studioToRegister.name}" required="true"/>
-        <h:inputText value="#{studiosController.studioToRegister.city}" required="true"/>
+        <h:inputText a:placeholder="Studio name" value="#{studiosController.studioToRegister.name}" required="true"/>
+        <h:inputText a:placeholder="Studio city" value="#{studiosController.studioToRegister.city}" required="true"/>
         <h:commandButton value="Register a studio" actionListener="#{studiosController.registerStudio}" action="index?faces-redirect=true"/>
     </h:form>
     <h3>Add a Game:</h3>
     <h:form>
-        <h:inputText value="#{gamesController.gameToRegister.title}" required="true"/>
-        <h:inputText binding="#{studioName}" required="true"/>
+        <h:inputText a:placeholder="Game tile" value="#{gamesController.gameToRegister.title}" required="true"/>
+        <h:inputText a:placeholder="Developer studio name" binding="#{studioName}" required="true"/>
         <h:commandButton value="Register a game" actionListener="#{gamesController.registerGame(studioName.value)}" action="index?faces-redirect=true"/>
     </h:form>
 </h:body>

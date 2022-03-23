@@ -19,7 +19,7 @@ public class Player implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "HANDLE")
+    @Column(name = "HANDLE", unique = true)
     private String handle;
 
     @ManyToMany(mappedBy = "players")

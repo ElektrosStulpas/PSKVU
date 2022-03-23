@@ -33,6 +33,11 @@ public class Game implements Serializable {
     public Game() {
     }
 
+    public void addPlayer(Player player)
+    {
+        this.players.add(player);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

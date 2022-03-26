@@ -3,6 +3,8 @@ package mybatis.model;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 public class Game {
@@ -31,7 +33,7 @@ public class Game {
      *
      * @mbg.generated Fri Mar 25 21:15:25 EET 2022
      */
-    private Integer studioId;
+    private Integer studio;
 
-    private Studio studio;
+    private List<Player> players;
 }

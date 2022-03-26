@@ -26,5 +26,6 @@
         <table schema="public" tableName="studio">
             <generatedKey column="id" identity="true" sqlStatement="JDBC" />
         </table>
+        <table schema="public" tableName="game_player"></table>
     </context>
 </generatorConfiguration>

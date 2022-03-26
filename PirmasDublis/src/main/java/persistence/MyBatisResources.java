@@ -17,9 +17,12 @@ public class MyBatisResources {
     @SessionFactoryProvider
     private SqlSessionFactory produceSqlSessionFactory() {
         try {
-            return new SqlSessionFactoryBuilder().build(Resources.getResourceAsStream("MyBatisConfig.xml"));
+            return new SqlSessionFactoryBuilder().build(
+                    Resources.getResourceAsStream("MyBatisConfig.xml")
+            );
         } catch (IOException e) {
             throw new RuntimeException("MyBatisResources.produceSqlSessionFactory(): ", e);
         }
     }
 }
+

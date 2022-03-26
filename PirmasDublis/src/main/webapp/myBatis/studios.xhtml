@@ -9,7 +9,7 @@
 <h:body>
     <h2>Current Studios:</h2>
     <ol>
-        <ui:repeat value="#{studiosController.allStudios}" var="studio">
+        <ui:repeat value="#{studiosMyBatisController.allStudios}" var="studio">
             <li>#{studio.name} :
                 <ul>
                     <ui:repeat value="#{studio.games}" var="game">
@@ -21,16 +21,16 @@
     </ol>
     <h3>Add a Studio:</h3>
     <h:form>
-        <h:inputText a:placeholder="Studio name" value="#{studiosController.studioToRegister.name}" required="true"/>
-        <h:inputText a:placeholder="Studio city" value="#{studiosController.studioToRegister.city}" required="true"/>
-        <h:commandButton value="Register a studio" actionListener="#{studiosController.registerStudio}" action="index?faces-redirect=true"/>
+        <h:inputText a:placeholder="Studio name" value="#{studiosMyBatisController.studioToRegister.name}" required="true"/>
+        <h:inputText a:placeholder="Studio city" value="#{studiosMyBatisController.studioToRegister.city}" required="true"/>
+        <h:commandButton value="Register a studio" actionListener="#{studiosMyBatisController.registerStudio}" action="studios?faces-redirect=true"/>
     </h:form>
     <h3>Add a Game:</h3>
     <h:form>
-        <h:inputText a:placeholder="Game title" value="#{gamesController.gameToRegister.title}" required="true"/>
+        <h:inputText a:placeholder="Game title" value="#{gamesMyBatisController.gameToRegister.title}" required="true"/>
         <h:inputText a:placeholder="Developer studio name" binding="#{studioName}" required="true"/>
-        <h:commandButton value="Register a game" actionListener="#{gamesController.registerGame(studioName.value)}" action="index?faces-redirect=true"/>
+        <h:commandButton value="Register a game" actionListener="#{gamesMyBatisController.registerGame(studioName.value)}" action="studios?faces-redirect=true"/>
     </h:form>
-    <h:link outcome="myBatis/studios" value="MyBatis"/>
+    <h:link value="Back to JPA" outcome="/index"/>
 </h:body>
 </html>

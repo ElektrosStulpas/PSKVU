@@ -25,14 +25,14 @@ public class GamesController {
     @Getter @Setter
     private Game gameToRegister = new Game();
 
-    @Getter
-    private List<Game> allGames;
-
-    @PostConstruct
-    public void init()
-    {
-        this.allGames = gamesDAO.findAll();
-    }
+//    @Getter
+//    private List<Game> allGames;
+//
+//    @PostConstruct
+//    public void init()
+//    {
+//        this.allGames = gamesDAO.findAll();
+//    }
 
     @Transactional
     public void registerGame(String studioName)

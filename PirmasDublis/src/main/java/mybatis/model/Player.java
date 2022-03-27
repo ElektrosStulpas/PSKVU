@@ -25,6 +25,4 @@ public class Player {
      * @mbg.generated Fri Mar 25 21:15:25 EET 2022
      */
     private String handle;
-
-    private List<Game> games;
 }

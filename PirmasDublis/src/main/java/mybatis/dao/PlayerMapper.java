@@ -45,4 +45,6 @@ public interface PlayerMapper {
      * @mbg.generated Fri Mar 25 21:15:25 EET 2022
      */
     int updateByPrimaryKey(Player record);
+
+    Player findOneByName(String playerHandle);
 }

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis.dao.GamePlayerMapper">
+  <resultMap id="BaseResultMap" type="mybatis.model.GamePlayer">
+    <result column="GAMES_ID" jdbcType="INTEGER" property="gamesId" />
+    <result column="PLAYERS_ID" jdbcType="INTEGER" property="playersId" />
+  </resultMap>
+  <insert id="insert" parameterType="mybatis.model.GamePlayer">
+    insert into PUBLIC.GAME_PLAYER (GAMES_ID, PLAYERS_ID)
+    values (#{gamesId,jdbcType=INTEGER}, #{playersId,jdbcType=INTEGER})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select GAMES_ID, PLAYERS_ID
+    from PUBLIC.GAME_PLAYER
+  </select>
+</mapper>

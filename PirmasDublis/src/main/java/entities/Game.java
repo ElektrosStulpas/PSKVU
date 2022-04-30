@@ -22,6 +22,9 @@ public class Game implements Serializable {
     @Column(name = "TITLE")
     private String title;
 
+    @Column(name = "RATING")
+    private Integer rating;
+
     @ManyToOne
     @JoinColumn(name="STUDIO")
     private Studio studio;
@@ -29,6 +32,10 @@ public class Game implements Serializable {
     @ManyToMany
     @JoinTable(name="GAME_PLAYER")
     private List<Player> players = new ArrayList<>();
+
+    @Version
+    @Column(name = "LOCK_VERSION")
+    private Integer version;
 
     public Game() {
     }

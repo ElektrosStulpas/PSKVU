@@ -38,7 +38,10 @@ public class GamesController {
     public void registerGame(String studioName)
     {
         Studio studio = this.studiosDAO.findOneByName(studioName);
-        gameToRegister.setStudio(studio);
-        this.gamesDAO.persist(gameToRegister);
+        if (studio != null)
+        {
+            gameToRegister.setStudio(studio);
+            this.gamesDAO.persist(gameToRegister);
+        }
     }
 }

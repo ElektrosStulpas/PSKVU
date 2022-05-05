@@ -4,4 +4,14 @@
        xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
                       http://xmlns.jcp.org/xml/ns/javaee/beans_2_0.xsd"
        bean-discovery-mode="all">
+
+    <alternatives>
+        <class>services.TopStreamerCounter</class>
+    </alternatives>
+    <interceptors>
+        <class>interceptors.CallstackLogger</class>
+    </interceptors>
+    <decorators>
+        <class>services.TopStreamerLogger</class>
+    </decorators>
 </beans>

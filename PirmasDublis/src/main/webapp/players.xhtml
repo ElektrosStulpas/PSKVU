@@ -4,7 +4,8 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 <h:head/>
 <h:body>
     <h2>Players playing #{playersForGame.game.title}:</h2>
@@ -31,6 +32,13 @@
             <f:param name="gameId" value="#{playersForGame.game.id}" />
         </h:commandButton>
         <h:outputText value="Value was already modified by other user. If you want to override it - try again" rendered="#{param['error'] == 'optimistic-lock-exception'}" />
+    </h:form>
+
+    <h:form>
+        <h:outputText id="status" value="#{checkCurrentStreamersForGame.currentStreamerCountStatus}"/>
+        <h:commandButton value="Count current streamers playing the game" actionListener="#{checkCurrentStreamersForGame.checkCurrentStreamers()}">
+            <f:param name="gameId" value="#{playersForGame.game.id}" />
+        </h:commandButton>
     </h:form>
     <h:link outcome="index" value="Back to games page"/>
 </h:body>

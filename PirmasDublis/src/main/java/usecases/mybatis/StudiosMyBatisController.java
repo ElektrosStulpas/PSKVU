@@ -1,4 +1,4 @@
-package usecases;
+package usecases.mybatis;
 
 import lombok.Getter;
 import lombok.Setter;

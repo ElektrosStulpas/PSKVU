@@ -14,23 +14,15 @@ public abstract class TopStreamerLogger implements StreamerCounter {
 
     @Override
     public Integer countStreamersForGame() {
-        CompletableFuture<Integer> streamerCounterTask = CompletableFuture.supplyAsync(() -> streamerCounter.countStreamersForGame());
-//        while(!streamerCounterTask.isDone())
-//        {
-//            //calculating
-//        }
-        Integer streamerCount = null;
-        try {
-            streamerCount = streamerCounterTask.get();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        }
+
+        System.out.println("decorator method called");
+        Integer streamerCount = streamerCounter.countStreamersForGame();
         if (streamerCount > 5000)
         {
-            System.out.println("big streamer");
+            System.out.println("big streamer, count: "+streamerCount);
+        } else {
+            System.out.println("small streamer, count: "+streamerCount);
         }
-        return null;
+        return streamerCount;
     }
 }
